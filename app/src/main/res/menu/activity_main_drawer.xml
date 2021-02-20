@@ -3,22 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <item
+        android:id="@+id/menuNavHome"
+        android:icon="@drawable/ic_home_dark"
+        android:title="Home" />
+
     <group android:checkableBehavior="single">
-        <item android:title="Add Employee"
-            android:id="@+id/nav_menu_item_add_employee"
-            android:icon="@drawable/ic_add_personal_dark" />
-
-        <item android:title="Edit Employee"
-            android:id="@+id/nav_menu_item_edit_employee"
-            android:icon="@drawable/ic_edit_personal_dark" />
-
-        <item android:title="Search Employee"
-            android:id="@+id/nav_menu_item_search_employee"
-            android:icon="@drawable/ic_search_personal_dark" />
-
-        <item android:title="Remove Employee"
-            android:id="@+id/nav_menu_item_remove_employee"
-            android:icon="@drawable/ic_remove_personal_dark" />
-
+        <item android:title="@string/txtActions">
+            <menu>
+                <item
+                    android:id="@+id/menuNavCreate"
+                    android:icon="@drawable/ic_add_personal_dark"
+                    android:title="Add Employee" />
+                <item
+                    android:id="@+id/menuNavEdit"
+                    android:icon="@drawable/ic_edit_personal_dark"
+                    android:title="Edit Employee" />
+                <item
+                    android:id="@+id/menuNavSearch"
+                    android:icon="@drawable/ic_search_personal_dark"
+                    android:title="Search Employee" />
+                <item
+                    android:id="@+id/menuNavRemove"
+                    android:icon="@drawable/ic_remove_personal_dark"
+                    android:title="Remove Employee" />
+            </menu>
+        </item>
     </group>
+
+    <item android:title="@string/txtOthers" >
+
+        <menu>
+            <item
+                android:id="@+id/menuNavExit"
+                android:icon="@drawable/ic_exit_dark"
+                android:title="Exit" />
+        </menu>
+    </item>
 </menu>
