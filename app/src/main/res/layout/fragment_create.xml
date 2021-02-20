@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/colorAccent"
     tools:context=".CreateFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/txt_fill_the_informations" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputCreateName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterMaxLength="30"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            android:hint="Name...">
+
+            <EditText
+                android:id="@+id/txtCreateName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxEms="30"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputCreateEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterMaxLength="60"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            android:hint="Email...">
+
+            <EditText
+                android:id="@+id/txtCreateEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxEms="60"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputCreateJobTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterMaxLength="30"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            android:hint="Job Title...">
+
+            <EditText
+                android:id="@+id/txtCreateJobTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxEms="30"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputCreatePhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterMaxLength="30"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            android:hint="Phone...">
+
+            <EditText
+                android:id="@+id/txtCreatePhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxEms="30"
+                android:inputType="phone"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="@string/txt_submit"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

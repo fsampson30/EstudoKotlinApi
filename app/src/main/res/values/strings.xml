@@ -16,4 +16,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txtOthers">Others</string>
     <string name="txtActions">Actions:</string>
+    <string name="txt_fill_the_informations">Fill the informations:</string>
+    <string name="txt_submit">SUBMIT</string>
 </resources>
