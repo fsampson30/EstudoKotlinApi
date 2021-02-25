@@ -18,4 +18,8 @@
     <string name="txtActions">Actions:</string>
     <string name="txt_fill_the_informations">Fill the informations:</string>
     <string name="txt_submit">SUBMIT</string>
+    <string name="select_your_search_paramenter">Select your search paramenter:</string>
+    <string name="employee_email_com">employee@email.com</string>
+    <string name="job_title">Job Title</string>
+    <string name="details">DETAILS</string>
 </resources>

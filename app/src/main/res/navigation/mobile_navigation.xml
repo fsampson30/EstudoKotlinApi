@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/menuNavEdit"
-        android:name="com.sampson.terceirokotlin.ui.gallery.GalleryFragment"
+        android:name="com.sampson.terceirokotlin.ui.gallery.EditFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_edit" />
 
     <fragment
         android:id="@+id/menuNavSearch"
