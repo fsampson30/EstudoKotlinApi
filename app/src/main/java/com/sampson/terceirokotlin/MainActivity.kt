@@ -1,6 +1,8 @@
 package com.sampson.terceirokotlin
 
+import Model.Employee
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
@@ -19,8 +21,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.core.view.get
+import com.google.gson.Gson
+import retrofit2.converter.gson.GsonConverterFactory
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 import kotlin.system.exitProcess
+
+const val BASE_URL = "https://ruy-manager-employee.herokuapp.com/"
+const val TAG =  "MainActivity"
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
 

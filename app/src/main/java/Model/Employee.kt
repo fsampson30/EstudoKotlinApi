@@ -1,10 +1,15 @@
 package Model
 
+import com.google.gson.annotations.SerializedName
+
 data class Employee(
-    val nameEmployee : String,
-    val emailEmployee : String,
-    val jobTitleEmployee : String,
-    val phoneEmployee : String
+    @SerializedName("id") val id: Int,
+    @SerializedName("name") val name : String,
+    @SerializedName("email") val email : String,
+    @SerializedName("jobTitle") val jobTitle : String,
+    @SerializedName("phone") val phone : String,
+    @SerializedName("imageUrl") val imageUrl : String,
+    @SerializedName("employeeCode") val employeeCode: String
 )
 
 
