@@ -2,7 +2,6 @@ package Control
 
 import Model.Employee
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
