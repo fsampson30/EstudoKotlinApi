@@ -2,12 +2,15 @@ package Control
 
 import Model.Employee
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sampson.terceirokotlin.R
+
+private const val TAG = "EmployeeAdapterListView"
 
 class EmployeeAdapterListView(
     private val context: Context
@@ -36,6 +39,13 @@ class EmployeeAdapterListView(
 
     fun setEmployeeList(employeeList: List<Employee>) {
         this.employees = employeeList
+        notifyDataSetChanged()
+    }
+
+    fun sortByName(){
+        Log.d(TAG, "Names: ${employees[0].name} , ${employees[1].name}")
+        this.employees = this.employees.sortedBy { it.name }
+        Log.d(TAG, "Names: ${employees[0].name} , ${employees[1].name}")
         notifyDataSetChanged()
     }
 

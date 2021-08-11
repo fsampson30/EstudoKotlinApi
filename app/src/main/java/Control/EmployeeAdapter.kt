@@ -46,5 +46,10 @@ class EmployeeAdapter(
         notifyDataSetChanged()
     }
 
+    fun sortByName(){
+        this.employees.sortedBy { it.name }
+        notifyDataSetChanged()
+    }
+
 
 }

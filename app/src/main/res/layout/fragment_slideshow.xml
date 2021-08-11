@@ -23,6 +23,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/imgButtonSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_sort_light" />
+
+        <ImageButton
             android:id="@+id/imgButtonCardview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

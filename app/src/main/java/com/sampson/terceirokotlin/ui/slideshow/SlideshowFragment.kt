@@ -25,15 +25,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://ruy-manager-employee.herokuapp.com/"
-private const val TAG =  "SlideShowFragment"
+private const val TAG = "SlideShowFragment"
 
 class SlideshowFragment : Fragment() {
 
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
 
     ): View? {
 
@@ -45,13 +45,14 @@ class SlideshowFragment : Fragment() {
         val imgButtonRefresh = view.findViewById<ImageButton>(R.id.imgButtonRefresh)
         val imgButtonCardView = view.findViewById<ImageButton>(R.id.imgButtonCardview)
         val imgButtonListView = view.findViewById<ImageButton>(R.id.imgButtonListView)
+        val imgButtonSortList = view.findViewById<ImageButton>(R.id.imgButtonSort)
 
         rvEmployees.layoutManager = LinearLayoutManager(context)
         rvEmployees.adapter = employeeAdapterListView
         pbCircularBar.visibility = View.VISIBLE
         retrieveInformationListView(employeeAdapterListView)
 
-        imgButtonRefresh.setOnClickListener{
+        imgButtonRefresh.setOnClickListener {
             rvEmployees.adapter = employeeAdapterListView
             Toast.makeText(container.context, "Refresh", Toast.LENGTH_SHORT)
             Log.d(TAG, "Refresh")
@@ -65,20 +66,25 @@ class SlideshowFragment : Fragment() {
             retrieveInformationCardView(employeeAdapter)
         }
 
-        imgButtonListView.setOnClickListener{
+        imgButtonListView.setOnClickListener {
             rvEmployees.adapter = employeeAdapterListView
             Toast.makeText(context, "Listview", Toast.LENGTH_SHORT)
             Log.d(TAG, "Listview")
             retrieveInformationListView(employeeAdapterListView)
         }
 
+        imgButtonSortList.setOnClickListener {
+            employeeAdapterListView.sortByName()
+        }
+
         return view
     }
 
-    private fun retrieveInformationCardView(employeeAdapter : EmployeeAdapter){
+    private fun retrieveInformationCardView(employeeAdapter: EmployeeAdapter) {
         val gson = GsonBuilder().create()
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(
-            GsonConverterFactory.create(gson)).build()
+            GsonConverterFactory.create(gson)
+        ).build()
         val apiService = retrofit.create(ApiService::class.java)
         apiService.getAllEmployees().enqueue(object : Callback<List<Employee>> {
             override fun onResponse(
@@ -93,6 +99,7 @@ class SlideshowFragment : Fragment() {
                 }
                 pbCircularBar.visibility = View.GONE
             }
+
             override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
                 Log.i(TAG, "onFailure $t")
                 Toast.makeText(context, "Timeout", Toast.LENGTH_SHORT)
@@ -102,10 +109,11 @@ class SlideshowFragment : Fragment() {
 
     }
 
-    private fun retrieveInformationListView(employeeAdapterListView: EmployeeAdapterListView){
+    private fun retrieveInformationListView(employeeAdapterListView: EmployeeAdapterListView) {
         val gson = GsonBuilder().create()
         val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(
-            GsonConverterFactory.create(gson)).build()
+            GsonConverterFactory.create(gson)
+        ).build()
         val apiService = retrofit.create(ApiService::class.java)
         apiService.getAllEmployees().enqueue(object : Callback<List<Employee>> {
             override fun onResponse(
@@ -120,6 +128,7 @@ class SlideshowFragment : Fragment() {
                 }
                 pbCircularBar.visibility = View.GONE
             }
+
             override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
                 Log.i(TAG, "onFailure $t")
                 Toast.makeText(context, "Timeout", Toast.LENGTH_SHORT)
