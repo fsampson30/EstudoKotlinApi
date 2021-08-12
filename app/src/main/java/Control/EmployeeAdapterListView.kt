@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sampson.terceirokotlin.R
 
@@ -47,6 +48,15 @@ class EmployeeAdapterListView(
         this.employees = this.employees.sortedBy { it.name }
         Log.d(TAG, "Names: ${employees[0].name} , ${employees[1].name}")
         notifyDataSetChanged()
+    }
+
+    fun searchByName(name : String) {
+        this.employees = this.employees.filter { it.name.toLowerCase().contains(name.toLowerCase()) }
+        if (this.employees.size > 0) {
+            notifyDataSetChanged()
+        } else {
+            Toast.makeText(context,"Name not found",Toast.LENGTH_SHORT).show()
+        }
     }
 
 
