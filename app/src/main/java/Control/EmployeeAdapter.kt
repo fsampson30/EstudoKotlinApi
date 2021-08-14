@@ -56,6 +56,7 @@ class EmployeeAdapter(
         this.employees = this.employees.filter { it.name.toLowerCase().contains(name.toLowerCase()) }
         if (this.employees.size > 0) {
             notifyDataSetChanged()
+            Toast.makeText(context,"${this.employees.size} name(s) found",Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(context,"Name not found", Toast.LENGTH_SHORT).show()
         }

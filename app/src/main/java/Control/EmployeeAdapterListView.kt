@@ -44,9 +44,7 @@ class EmployeeAdapterListView(
     }
 
     fun sortByName(){
-        Log.d(TAG, "Names: ${employees[0].name} , ${employees[1].name}")
         this.employees = this.employees.sortedBy { it.name }
-        Log.d(TAG, "Names: ${employees[0].name} , ${employees[1].name}")
         notifyDataSetChanged()
     }
 
@@ -54,6 +52,7 @@ class EmployeeAdapterListView(
         this.employees = this.employees.filter { it.name.toLowerCase().contains(name.toLowerCase()) }
         if (this.employees.size > 0) {
             notifyDataSetChanged()
+            Toast.makeText(context,"${this.employees.size} name(s) found",Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(context,"Name not found",Toast.LENGTH_SHORT).show()
         }

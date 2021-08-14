@@ -10,11 +10,7 @@
         android:id="@+id/llPanel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:background="@color/colorPrimary"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/rvListEmployees"
@@ -26,25 +22,25 @@
             android:id="@+id/imgButtonSort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_sort_light" />
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:src="@drawable/ic_sort_dark" />
 
         <ImageButton
-            android:id="@+id/imgButtonCardview"
+            android:id="@+id/imgButtonListViewMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_card_light" />
-
-        <ImageButton
-            android:id="@+id/imgButtonListView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_list_light" />
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:src="@drawable/ic_card_dark" />
 
         <ImageButton
             android:id="@+id/imgButtonRefresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_refresh_light" />
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:src="@drawable/ic_refresh_dark" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

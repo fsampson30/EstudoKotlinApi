@@ -3,6 +3,7 @@ package com.sampson.terceirokotlin.ui.slideshow
 import Control.EmployeeAdapter
 import Control.EmployeeAdapterListView
 import Model.Employee
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -45,8 +46,7 @@ class SlideshowFragment : Fragment() {
 
         val pbCircularBar = view.findViewById<ProgressBar>(R.id.pbCircularBar)
         val imgButtonRefresh = view.findViewById<ImageButton>(R.id.imgButtonRefresh)
-        val imgButtonCardView = view.findViewById<ImageButton>(R.id.imgButtonCardview)
-        val imgButtonListView = view.findViewById<ImageButton>(R.id.imgButtonListView)
+        val imgButtonListViewMode = view.findViewById<ImageButton>(R.id.imgButtonListViewMode)
         val imgButtonSortList = view.findViewById<ImageButton>(R.id.imgButtonSort)
         val txtNameSearch = view.findViewById<EditText>(R.id.edtSearchEmployee)
 
@@ -54,30 +54,35 @@ class SlideshowFragment : Fragment() {
         rvEmployees.adapter = employeeAdapterListView
         pbCircularBar.visibility = View.VISIBLE
         retrieveInformationListView(employeeAdapterListView)
+        imgButtonListViewMode.setImageResource(R.drawable.ic_card_dark)
+
 
         imgButtonRefresh.setOnClickListener {
-            rvEmployees.adapter = employeeAdapterListView
-            Toast.makeText(context, "Refresh", Toast.LENGTH_SHORT).show()
-            Log.d(TAG, "Refresh")
-            retrieveInformationCardView(employeeAdapter)
+            if (rvEmployees.adapter is EmployeeAdapterListView) {
+                rvEmployees.adapter = employeeAdapterListView
+                retrieveInformationListView(employeeAdapterListView)
+            } else {
+                rvEmployees.adapter = employeeAdapter
+                retrieveInformationCardView(employeeAdapter)
+            }
         }
 
-        imgButtonCardView.setOnClickListener {
-            rvEmployees.adapter = employeeAdapter
-            Toast.makeText(context, "Cardview", Toast.LENGTH_SHORT).show()
-            Log.d(TAG, "Cardview")
-            retrieveInformationCardView(employeeAdapter)
+        imgButtonListViewMode.setOnClickListener {
+            if (rvEmployees.adapter is EmployeeAdapterListView) {
+                rvEmployees.adapter = employeeAdapter
+                retrieveInformationCardView(employeeAdapter)
+                imgButtonListViewMode.setImageResource(R.drawable.ic_list_dark)
+
+            } else {
+                rvEmployees.adapter = employeeAdapterListView
+                retrieveInformationListView(employeeAdapterListView)
+                imgButtonListViewMode.setImageResource(R.drawable.ic_card_dark)
+            }
         }
 
-        imgButtonListView.setOnClickListener {
-            rvEmployees.adapter = employeeAdapterListView
-            Toast.makeText(context, "Listview", Toast.LENGTH_SHORT).show()
-            Log.d(TAG, "Listview")
-            retrieveInformationListView(employeeAdapterListView)
-        }
 
         imgButtonSortList.setOnClickListener {
-            if (rvEmployees.adapter is EmployeeAdapterListView){
+            if (rvEmployees.adapter is EmployeeAdapterListView) {
                 employeeAdapterListView.sortByName()
             } else {
                 employeeAdapter.sortByName()
@@ -85,19 +90,22 @@ class SlideshowFragment : Fragment() {
         }
 
         txtNameSearch.setOnEditorActionListener { v, actionId, event ->
-            if (actionId == EditorInfo.IME_ACTION_DONE){
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
                 if (txtNameSearch.length() == 0) {
                     txtNameSearch.error = "Empty Name"
                 } else {
-                    if (rvEmployees.adapter is EmployeeAdapterListView){
+                    if (rvEmployees.adapter is EmployeeAdapterListView) {
                         employeeAdapterListView.searchByName(txtNameSearch.text.toString())
-
+                        txtNameSearch.setText("")
+                        txtNameSearch.hideKeyboard()
                     } else {
                         employeeAdapter.searchByName(txtNameSearch.text.toString())
+                        txtNameSearch.setText("")
+                        txtNameSearch.hideKeyboard()
                     }
                 }
                 true
-            } else{
+            } else {
                 false
             }
         }
@@ -153,6 +161,7 @@ class SlideshowFragment : Fragment() {
                 }
                 pbCircularBar.visibility = View.GONE
             }
+
             override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
                 Log.i(TAG, "onFailure $t")
                 Toast.makeText(context, "Timeout", Toast.LENGTH_SHORT).show()
@@ -160,6 +169,11 @@ class SlideshowFragment : Fragment() {
             }
         })
 
+    }
+
+    fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 
 }
