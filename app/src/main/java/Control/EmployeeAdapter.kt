@@ -2,18 +2,21 @@ package Control
 
 import Model.Employee
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.sampson.terceirokotlin.EmployeeDetailsActivity
 import com.sampson.terceirokotlin.R
 import com.squareup.picasso.Picasso
 
 class EmployeeAdapter(
-    private val context: Context
+    private val context: Context,
 
 ) : RecyclerView.Adapter<EmployeeAdapter.EmployeeListHolder>() {
 
@@ -31,6 +34,12 @@ class EmployeeAdapter(
         holder.jobTitle.text = currentEmployee.jobTitle
         Picasso.get().load(currentEmployee.imageUrl).fetch();
         Picasso.get().load(currentEmployee.imageUrl).into(holder.imageUrl)
+
+        holder.btnDetails.setOnClickListener {
+            val intent = Intent(context, EmployeeDetailsActivity::class.java)
+            intent.putExtra("employee", employees[position])
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = employees.size
@@ -40,6 +49,7 @@ class EmployeeAdapter(
         val email = itemView.findViewById<TextView>(R.id.txtEmailCardView)
         val jobTitle = itemView.findViewById<TextView>(R.id.txtJobTitleCardView)
         val imageUrl = itemView.findViewById<ImageView>(R.id.imgPictureCardView)
+        val btnDetails = itemView.findViewById<Button>(R.id.btnDetailCardView)
     }
 
     fun setEmployeeList(employeeList: List<Employee>) {

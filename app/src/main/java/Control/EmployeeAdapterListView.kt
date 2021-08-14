@@ -2,13 +2,16 @@ package Control
 
 import Model.Employee
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.sampson.terceirokotlin.EmployeeDetailsActivity
 import com.sampson.terceirokotlin.R
 
 private const val TAG = "EmployeeAdapterListView"
@@ -29,6 +32,12 @@ class EmployeeAdapterListView(
         val currentEmployee = employees[position]
         holder.name.text = currentEmployee.name
         holder.jobTitle.text = currentEmployee.jobTitle
+
+        holder.btnDetails.setOnClickListener {
+            val intent = Intent(context, EmployeeDetailsActivity::class.java)
+            intent.putExtra("employee", employees[position])
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = employees.size
@@ -36,6 +45,7 @@ class EmployeeAdapterListView(
     class EmployeeListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.txtNameListView)
         val jobTitle = itemView.findViewById<TextView>(R.id.txtJobTitleListView)
+        val btnDetails = itemView.findViewById<Button>(R.id.btnDetailListView)
     }
 
     fun setEmployeeList(employeeList: List<Employee>) {

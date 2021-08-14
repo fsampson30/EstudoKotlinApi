@@ -1,6 +1,7 @@
 package Model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Employee(
     @SerializedName("id") val id: Int,
@@ -10,7 +11,7 @@ data class Employee(
     @SerializedName("phone") val phone : String,
     @SerializedName("imageUrl") val imageUrl : String,
     @SerializedName("employeeCode") val employeeCode: String
-)
+) : Serializable
 
 
 

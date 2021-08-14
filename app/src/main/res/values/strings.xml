@@ -23,4 +23,5 @@
     <string name="job_title">Job Title</string>
     <string name="details">DETAILS</string>
     <string name="date_format">yyyy-MM-dd\'T\'HH:mm:ss</string>
+    <string name="labelId">\"Id: \"</string>
 </resources>
