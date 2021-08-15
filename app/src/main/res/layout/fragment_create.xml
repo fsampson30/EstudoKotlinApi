@@ -1,119 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#BABABA"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/colorAccent"
     tools:context=".CreateFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/txt_fill_the_informations" />
-
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:src="@mipmap/ic_launcher"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputCreateName"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterMaxLength="30"
-            app:errorEnabled="true"
-            app:counterEnabled="true"
-            android:hint="Name...">
-
-            <EditText
-                android:id="@+id/txtCreateName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxEms="30"
-                android:inputType="text"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputCreateEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterMaxLength="60"
-            app:errorEnabled="true"
-            app:counterEnabled="true"
-            android:hint="Email...">
-
-            <EditText
-                android:id="@+id/txtCreateEmail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxEms="60"
-                android:inputType="text"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputCreateJobTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterMaxLength="30"
-            app:errorEnabled="true"
-            app:counterEnabled="true"
-            android:hint="Job Title...">
-
-            <EditText
-                android:id="@+id/txtCreateJobTitle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxEms="30"
-                android:inputType="text"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtInputCreatePhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterMaxLength="30"
-            app:errorEnabled="true"
-            app:counterEnabled="true"
-            android:hint="Phone...">
-
-            <EditText
-                android:id="@+id/txtCreatePhone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxEms="30"
-                android:inputType="phone"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnSubmitCreate"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="@string/txt_submit"/>
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtInputCreateName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name..."
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/txtCreateName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:maxEms="30" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtInputCreateEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email..."
+                app:counterEnabled="true"
+                app:counterMaxLength="60"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/txtCreateEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:maxEms="60" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtInputCreateJobTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Job Title..."
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/txtCreateJobTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:maxEms="30" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtInputCreatePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone..."
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/txtCreatePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="phone"
+                    android:maxEms="30" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/llButtonsCreateEmployee"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButtonSubmitCreateEmployee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_submit_light" />
+
+                <ImageButton
+                    android:id="@+id/imgButtonReturnCreateEmployee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_return_light" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </ScrollView>
 

@@ -64,7 +64,7 @@ class EmployeeAdapter(
 
     fun searchByName(name : String) {
         this.employees = this.employees.filter { it.name.toLowerCase().contains(name.toLowerCase()) }
-        if (this.employees.size > 0) {
+        if (this.employees.isNotEmpty()) {
             notifyDataSetChanged()
             Toast.makeText(context,"${this.employees.size} name(s) found",Toast.LENGTH_SHORT).show()
         } else {
