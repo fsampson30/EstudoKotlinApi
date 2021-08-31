@@ -24,8 +24,8 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.util.*
 
-private const val BASE_URL = "https://ruy-manager-employee.herokuapp.com/"
-private const val TAG = "HomeFragment"
+const val BASE_URL = "https://ruy-manager-employee.herokuapp.com/"
+internal const val TAG = "HomeFragment"
 
 class HomeFragment : Fragment() {
 
@@ -73,11 +73,9 @@ class HomeFragment : Fragment() {
             override fun onFailure(call: Call<List<Employee>>, t: Throwable) {
                 Log.i(TAG, "onFailure $t")
                 Toast.makeText(context, "Timeout", Toast.LENGTH_SHORT).show()
-                pbCircularBar.visibility = View.GONE
+                progressBar.visibility = View.GONE
             }
         })
-
-
 
         return view
     }

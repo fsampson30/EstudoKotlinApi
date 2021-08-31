@@ -25,7 +25,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://ruy-manager-employee.herokuapp.com/"
+const val BASE_URL = "https://ruy-manager-employee.herokuapp.com/"
 private const val TAG = "SlideShowFragment"
 
 class SlideshowFragment : Fragment() {
@@ -175,5 +175,4 @@ class SlideshowFragment : Fragment() {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(windowToken, 0)
     }
-
 }

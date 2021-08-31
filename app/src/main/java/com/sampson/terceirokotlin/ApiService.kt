@@ -1,10 +1,11 @@
 package com.sampson.terceirokotlin
 
 import Model.Employee
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -13,4 +14,7 @@ interface ApiService {
 
     @POST("employees/add")
     fun addEmployee(@Body employee: Employee) : Call<Employee>
+
+    @DELETE("employees/delete/{id}")
+    fun removeEmployee(@Path("id") employeeInt: Int) : Call<Void>
 }
