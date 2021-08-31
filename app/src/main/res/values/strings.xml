@@ -24,4 +24,8 @@
     <string name="details">DETAILS</string>
     <string name="date_format">yyyy-MM-dd\'T\'HH:mm:ss</string>
     <string name="labelId">\"Id: \"</string>
+    <string name="employees_registered">Employees registered:</string>
+    <string name="careers_registered">Careers registered:</string>
+    <string name="_0">0</string>
+    <string name="last_sync">Last Sync: </string>
 </resources>
